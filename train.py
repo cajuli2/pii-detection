@@ -1,31 +1,22 @@
 import os
 import time
 import json
-import random
+import torch
 import numpy as np
 from datetime import datetime
-import matplotlib.pyplot as plt
-
 from argparse import ArgumentParser
-
-from utils.configs import training_args, label_to_id, id_to_label, model_names, seed, n_folds
-from utils.weighted_trainer import WeightedTrainer
-
-import torch
-import torch.optim as optim
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.utils.data import DataLoader
-
 from datasets import Dataset, DatasetDict
 
-from transformers import BertTokenizer, BertModel, BatchEncoding
+from transformers import BertTokenizer, BatchEncoding
 from transformers import DataCollatorForTokenClassification
 from transformers import AutoModelForTokenClassification, TrainingArguments, Trainer
 
 from sklearn.model_selection import GroupKFold
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.metrics import classification_report, fbeta_score, accuracy_score, confusion_matrix
+
+from utils.configs import training_args, label_to_id, id_to_label, model_names, seed, n_folds
+from utils.weighted_trainer import WeightedTrainer
 
 # fix for a cuda error when running torch/nn/parallel
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
