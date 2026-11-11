@@ -5,6 +5,12 @@ raw_data = {
     "test": "text-anonymization-benchmark/echr_test.json",
 }
 
+class_distr_output_dest = {
+    "train": "results/class_distr_train.txt",
+    "valid": "results/class_distr_valid.txt",
+    "test": "results/class_distr_test.txt",
+}
+
 label_to_id = {
     "I": 0,
     "O": 1,
@@ -22,7 +28,10 @@ training_args = {
     "lr": 5e-5,
     "num_epochs": 3,
     "batch_size": 8,
+    "optimizer": "adamw_torch_fused"
 }
+
+seed = 12
 
 chunk_len = 100
 
@@ -33,5 +42,9 @@ model_names = {
     "mbert": "bert-base-multilingual-cased"
 }
 
-seeds = [22, 25, 28]
+# For evaluation
+model_types = [ "bert_regular", "bert_weighted", "mbert_regular", "mbert_weighted"]
 
+eval_metrics = ["pii_precision", "pii_recall", "pii_f1", "pii_f2", "accuracy"]
+
+n_folds = 5

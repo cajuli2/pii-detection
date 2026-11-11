@@ -1,0 +1,7 @@
+valid
+Number of chunks: 1373
+Number of tokens: 130662
+
+B: 	5,390	4.13%
+I: 	10,622	8.13%
+O: 	114,650	87.75%

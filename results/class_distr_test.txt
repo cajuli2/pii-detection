@@ -1,0 +1,7 @@
+test
+Number of chunks: 1314
+Number of tokens: 125595
+
+B: 	5,146	4.10%
+I: 	9,729	7.75%
+O: 	110,720	88.16%

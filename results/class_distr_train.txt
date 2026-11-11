@@ -1,0 +1,7 @@
+train
+Number of chunks: 16407
+Number of tokens: 1588460
+
+B: 	58,697	3.70%
+I: 	117,152	7.38%
+O: 	1,412,611	88.93%
